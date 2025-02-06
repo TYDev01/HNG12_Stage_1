@@ -12,7 +12,7 @@ from endpoints.endpoint import router
 
 app = FastAPI()
 
-app.include_router(router, prefix="/api", tags=["Number Facts"])
+
 
 app.add_middleware(
     CORSMiddleware,
@@ -20,8 +20,5 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-@app.get("/")
-async def home():
-    return {
-        "response": "Our Homepage"
-    }
+
+app.include_router(router, prefix="/api", tags=["Number Facts"])
